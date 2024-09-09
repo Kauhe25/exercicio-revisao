@@ -8,8 +8,8 @@ async function mostrarLivros() {
     const response = await fetch(URL_API_CONSULTA_LIVROS);
     const livros = await response.json();
     const tabelaPopulada = criarTabelaLivros(livros);
-    document.getElementById('caixa_livros').innerHTML = tabelaPopulada;
-    
+    let elementoCaixaLivros = document.getElementById('caixa_livros'); 
+    elementoCaixaLivros.innerHTML = tabelaPopulada;    
 }
 
 function criarTabelaLivros (livros) {
@@ -39,4 +39,29 @@ function criarTabelaLivros (livros) {
         </table>`;    
 
     return inicioTabela + dadosTabela + fimTabela; 
+}
+
+
+async function cadastrarLivro() {
+    const titulo = document.getElementById('title').value; 
+    const descricao = document.getElementById('description').value; 
+
+
+    const response = await fetch(URL_API_CONSULTA_LIVROS, {
+        method: "POST", 
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+            title: titulo,
+            description: descricao
+        })
+    })
+
+    if(response.status == 201){
+        alert("Cadastro Efetuado com Sucesso!")
+    }else {
+        alert("Erro ao tentar cadastrar!")
+    }
+    
 }
