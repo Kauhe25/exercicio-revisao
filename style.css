@@ -16,14 +16,8 @@ html, body {
     box-sizing: border-box;
 }
 
-main {
-    background-color: chocolate
-}
-
 header {
     display: flex;
-    background: rgb(48, 48, 48);
-    color: rgb(255, 255, 255);
     align-items: center;
 }
 
@@ -46,7 +40,6 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: white;
     font-weight: bold;
 }
 
@@ -63,4 +56,9 @@ input {
 
 #dadosCadastro {
     text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+    background-color: aqua;
 }
