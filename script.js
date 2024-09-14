@@ -16,6 +16,7 @@ function criarTabelaLivros (livros) {
     let dadosTabela = '';
 
     for(let i = 0; i< livros.length; i++){
+        
         dadosTabela += 
         `<tr>
             <td>${livros[i].id}</td>
