@@ -16,7 +16,7 @@ function criarTabelaLivros (livros) {
     let dadosTabela = '';
 
     for(let i = 0; i< livros.length; i++){
-        
+
         dadosTabela += 
         `<tr>
             <td>${livros[i].id}</td>
@@ -46,6 +46,7 @@ function criarTabelaLivros (livros) {
 async function cadastrarLivro() {
     const titulo = document.getElementById('title').value; 
     const descricao = document.getElementById('description').value; 
+    const elementoLabel = document.getElementById('labelResultado'); 
 
 
     const response = await fetch(URL_API_CONSULTA_LIVROS, {
@@ -60,9 +61,12 @@ async function cadastrarLivro() {
     })
 
     if(response.status == 201){
-        alert("Cadastro Efetuado com Sucesso!")
+        elementoLabel.innerHTML = "Cadastrado com Sucesso";
+        elementoLabel.style.backgroundColor = "green";
+
     }else {
-        alert("Erro ao tentar cadastrar!")
+        elementoLabel.innerHTML = "Falha ao Cadastrar";
+        elementoLabel.style.backgroundColor = "red";
     }
     
 }
